@@ -13,19 +13,41 @@ function esperaAi(msg, tempo) {
   });
 }
 
-esperaAi('Conexão com o BD', rand(1, 3))
-.then(resposta => {
-  console.log(resposta);
-  return esperaAi('Buscando dados na Base', rand(1, 3));
-})
-.then(resposta => {
-  console.log(resposta);
-  return esperaAi(2222, rand(1,3));
-}).then(resposta => {
-  console.log(resposta)
-}).then(() => {
-  console.log('Exibe dados na tela')
-})
-.catch(e => {console.log('Error: ', e)});
+// Promise.all Promise.race Promise.resolve Promise.reject
 
-console.log('Isso aqui será exibido antes de qualquer promisse.')
+const promises = [
+/*   'Primeiro valor', */
+  esperaAi('Promise 1', rand(1, 5)),
+  esperaAi('Promise 2', rand(1, 5)),
+  esperaAi('Promise 3', rand(1, 5)),
+/*   'Outro valor' */
+];
+
+function baixaPagina() {
+  const emCache = true;
+
+  if(emCache) {
+    return Promise.reject('Página em cache');
+  } else {
+    return esperaAi('Baixei a página', 3000)
+  }
+}
+
+baixaPagina()
+  .then(dadosPagina => {
+    console.log(dadosPagina)
+  })
+  .catch(e => console.log(e));
+
+
+
+
+
+
+/* Promise.race(promises)
+  .then(function(valor) {
+    console.log(valor);
+  })
+  .catch(function(erro){
+    console.log(erro);
+  }); */
