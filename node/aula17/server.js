@@ -10,14 +10,17 @@ mongoose.connect(process.env.CONNECTIONSTRING)
   .catch(e => console.log(e));
 
 const session = require('express-session');
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
-
 const routes = require('./routes');
 const path = require('path');
-const { middlewareGlobal } = require('./src/middlewares/middlewares');
+const helmet = require('helmet')
+const csrf = require('csurf')
+const { middlewareGlobal, checkCrsfError, csrfMiddleware} = require('./src/middlewares/middlewares');
 
+app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Arquivos estáticos
 app.use(express.static(path.resolve(__dirname, 'public')));
@@ -42,7 +45,10 @@ app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
 // Middlewares e rotas
+app.use(csrf());
 app.use(middlewareGlobal);
+app.use(checkCrsfError);
+app.use(csrfMiddleware);
 app.use(routes);
 
 // Inicialização do servidor
