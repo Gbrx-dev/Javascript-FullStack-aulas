@@ -6,6 +6,17 @@ Foi um ano excelente na vida de gabriel. Teve 5 filhos, todos adultos atualmente
 Não canso de ouvir a Maria:
 "Gaaaabrieeeeeel, o café tá prontinho aqui. Veeemm"!`
 
+const arquivos = [
+  'Atenção.jpg',
+  'FOTO.jpeg',
+  'Teste.JPG',
+  'Texto.jpg',
+  'Lista.JPEG',
+  'Compras.png',
+  'Tarefas.txt',
+];
+
 module.exports = { 
-  texto
+  texto,
+  arquivos
 }
