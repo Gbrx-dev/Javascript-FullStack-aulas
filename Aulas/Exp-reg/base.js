@@ -16,10 +16,42 @@ const arquivos = [
   'Tarefas.txt',
 ];
 
+const cpfs2 = `341.565.570-90
+672.483.340-06
+527.680.820-15
+335.376.370-80
+`
+
+const cpfs = `
+Os CPFs são:
+  849.824.630-00 208.361.830-02 050.480.280-15
+
+  951.463.600-73
+`
+const ips = `
+Os Ips são:
+
+136.38.158.131 2.166.26.83 110.22.250.84
+
+60.74.23.185 
+`
+
+const alfabeto =
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz @; 0123456789 i';
+
 const html = '<p>Olá mundo</p> <p>Olá de novo</p> <div>Sou a div </div>';
+const html2 = `<p class="teste teste" data-teste = 
+'teste'>Olá mundo</p> 
+<div>Olá de div</div>
+`
 
 module.exports = { 
   texto,
   arquivos,
-  html
+  html,
+  html2,
+  alfabeto,
+  cpfs, 
+  ips,
+  cpfs2
 }
