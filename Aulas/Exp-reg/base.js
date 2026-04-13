@@ -44,6 +44,12 @@ const html2 = `<p class="teste teste" data-teste =
 'teste'>Olá mundo</p> 
 <div>Olá de div</div>
 `
+const lookahead = `ONLINE 192.168.0.1 ABCDEF inactive
+OFFLINE 192.168.0.2 ABCDEF active
+ONLINE 192.168.0.3 ABCDEF active
+ONLINE 192.168.0.4 ABCDEF active
+OFFLINE 192.168.0.5 ABCDEF active
+OFFLINE 192.168.0.6 ABCDEF inactive`
 
 module.exports = { 
   texto,
@@ -53,5 +59,6 @@ module.exports = {
   alfabeto,
   cpfs, 
   ips,
-  cpfs2
+  cpfs2,
+  lookahead
 }
